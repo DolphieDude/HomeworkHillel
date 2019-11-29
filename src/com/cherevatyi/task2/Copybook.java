@@ -8,7 +8,7 @@ public class Copybook extends Good {
         this.amountOfSheets = 18;
     }
     Copybook (double priceIn, int quantityIn, int amountOfSheetsIn) {
-        super(priceIn, quantityIn);
+        super(priceIn);
         this.amountOfSheets = amountOfSheetsIn;
     }
 }

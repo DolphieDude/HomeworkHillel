@@ -8,7 +8,7 @@ public class Pen extends Good {
         this.colorInk = "Blue";
     }
     Pen (double priceIn, int quantityIn, String colorInkIn) {
-        super(priceIn, quantityIn);
+        super(priceIn);
         this.colorInk = colorInkIn;
     }
 

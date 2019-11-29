@@ -8,7 +8,7 @@ public class Bag extends Good {
         this.size = 1;
     }
     Bag (double priceIn, int quantityIn, int sizeIn) {
-        super(priceIn, quantityIn);
+        super(priceIn);
         this.size = sizeIn;
     }
 }

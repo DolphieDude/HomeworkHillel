@@ -5,7 +5,7 @@ public abstract class Good {
     private final static double DF_PRICE = 20.5;
 
     //private String name;
-    private double price;
+    public double price;
 //    private int quantity;
 
     Good () {
@@ -13,7 +13,7 @@ public abstract class Good {
         this.price = DF_PRICE;
 //        this.quantity = 1;
     }
-    Good (double priceIn, int quantityIn) {
+    Good (double priceIn/* int quantityIn*/) {
         this.price = priceIn;
 //        this.quantity = quantityIn;
     }
