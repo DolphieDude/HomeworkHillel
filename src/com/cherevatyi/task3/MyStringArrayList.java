@@ -1,39 +1,45 @@
 package com.cherevatyi.task3;
 
 public class MyStringArrayList implements MyList {
-    private int size, freeSpace1, freeSpace2;
+    private int size;
     private String[][] mainList = new String[10][];
 
     MyStringArrayList () {
         this.size = 0;
-        this.freeSpace1 = 0;
-        this.freeSpace2 = 0;
         this.mainList[0] = new String[10];
     }
 
     @Override
     public int size () { return this.size; }
-    public void checkSizes () {}
+    //controlSizes adds new array on previous array with 9 elements
+    public void controlSizes () { if (this.size < 100) if (this.size % 10 == 8) this.mainList[this.size() / 10 + 1]
+            = new String[10]; }
     public void add (Object inO) {
-        this.mainList[this.freeSpace1][this.freeSpace2] = inO.toString();
+        this.mainList[this.size / 10][this.size % 10] = inO.toString();
         this.size++;
-        if (this.freeSpace2 == 9) {
-            this.freeSpace1++;
-            this.freeSpace2 = 0;
-        }
-        else this.freeSpace2++;
+        controlSizes();
     }
-    public void add (int i, Object inO) {}
-    public void set (int i, Object inO) { this.mainList[i / 10][i - i / 10] = inO.toString(); }
+    public void add (int i, Object inO) {
+        for (int j = this.size; j > i; j--) { this.mainList[j / 10][j % 10] =
+                this.mainList[(j - 1) / 10][(j - 1) % 10]; }
+        this.mainList[i / 10][i % 10] = inO.toString();
+        this.size++;
+        controlSizes();
+    }
+    public void set (int i, Object inO) { this.mainList[i / 10][i % 10] = inO.toString(); }
     public void remove (int i) {
+        for (int j = i; j <= this.size; j++) { this.mainList[j / 10][j % 10] =
+                this.mainList[(j + 1) / 10][(j + 1) % 10]; }
         this.size--;
-        for (int j = i; j < this.size - 2; j++) { this.mainList[j / 10][j - j / 10] =
-                this.mainList[(j + 1) / 10][j + 1 - (j + 1) / 10]; }
     }
-    public String get (int i) { return this.mainList[i / 10][i - i / 10]; }
+    public String get (int i) { return this.mainList[i / 10][i % 10]; }
     public void printList () {
         for (String[] sarr: this.mainList) {
             for (String s: sarr) {
+                if (s == null) {
+                    System.out.println();
+                    return;
+                }
                 System.out.print(s + ";");
             }
         }
