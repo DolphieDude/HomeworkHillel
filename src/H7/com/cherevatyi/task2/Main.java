@@ -16,5 +16,12 @@ public class Main {
             if (!(city.equals("") || surname.equals(""))) population.put(city, surname);
             else break;
         }
+        while (true) {
+            System.out.print("Enter city to get surname: ");
+            city = input.readLine();
+            if (population.containsKey(city)) System.out.println(population.get(city));
+            else break;
+        }
+        System.out.println("END");
     }
 }
