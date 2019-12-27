@@ -1,5 +1,6 @@
 package com.cherevatyi.task3;
 
+import java.util.LinkedList;
 public class Main {
     public static void main(String[] args) {
         MyStringArrayList list = new MyStringArrayList();
