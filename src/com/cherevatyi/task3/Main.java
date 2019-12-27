@@ -23,7 +23,7 @@ public class Main {
         for (int i = 0; i < 50; i++) list.add("loop" + i);
         list.printList();
         list.add("notLooped");
-        list.remove(15);
+        list.remove(10);
         list.printList();
         list.add(12, "hey");
         list.printList();
